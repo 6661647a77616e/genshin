@@ -8,8 +8,6 @@ async def main():
 
     cookies = await client.login_with_password('', "")
 
-
-
     # Optional: Set the default game (Genshin Impact = "genshin")
     client.default_game = genshin.Game.GENSHIN
 
