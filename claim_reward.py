@@ -1,12 +1,12 @@
 import asyncio
 import genshin
-
+import os 
+from dotenv import load_dotenv 
+load_dotenv()
 async def main():
     client = genshin.Client()
 
-    # Login with email and password
-
-    cookies = await client.login_with_password('', "")
+    cookies = await client.login_with_password(os.getenv("GENSHIN_EMAIL"), os.getenv("GENSHIN_PASSWORD"))
 
     # Optional: Set the default game (Genshin Impact = "genshin")
     client.default_game = genshin.Game.GENSHIN

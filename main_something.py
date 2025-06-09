@@ -9,11 +9,16 @@ from PIL import Image
 from tqdm import tqdm 
 import requests
 from pathlib import Path
+from dotenv import load_dotenv
+import os 
+load_dotenv()
 
 async def main() -> Any: 
     client = genshin.Client()
 
-    cookies = await client.login_with_password('','')
+    email = os.get.env("GENSHIN_EMAIL")
+    password = os.get.env("GENSHIN_PASSWORD")
+    cookies = await client.login_with_password(email,password)
 
     await genshin.utility.update_characters_any()
 

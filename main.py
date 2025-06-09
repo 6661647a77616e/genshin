@@ -3,13 +3,17 @@ import genshin
 import sys
 import asyncio
 import genshin
+import os 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 client = genshin.Client()
 
 async def login():
     # Replace with your actual credentials or prompt user input
-    email = input("Email: ")
-    password = input("Password: ")
+    email = os.getenv("GENSHIN_EMAIL")
+    password = os.getenv("GENSHIN_PASSWORD")
     try:
         await client.login_with_password(email, password)
         print("✅ Login successful.")
